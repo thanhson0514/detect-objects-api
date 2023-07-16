@@ -1,0 +1,64 @@
+name: "API Detect Objects"
+run-name: ${{ github.actor }} is running Github Actions
+
+on:
+  push:
+    branches: ["master", "main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Install package
+        run: yarn install
+
+      - name: Setup environment
+        run: |
+          echo -e "NODE_ENV=production\n" >> .env
+          echo "PORT=8080" >> .env
+
+      - name: Test
+        run: yarn test
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install yarn
+        run: npm i -g yarn
+
+      - name: Install package
+        run: yarn install
+
+      - name: Setup environment
+        run: |
+          echo -e "NODE_ENV=production\n" >> .env
+          echo "PORT=8080" >> .env
+
+      - name: Build project
+        run: yarn build
+
+      - name: Run project
+        run: yarn start
