@@ -1,0 +1,22 @@
+[
+  {
+    "category": "strawberry",
+    "title": "Dâu tây Đà Lạt",
+    "imgUrl": "/storages/static/dtdl-1.jpg"
+  },
+  {
+    "category": "strawberry",
+    "title": "Dâu tây Trung Quốc",
+    "imgUrl": "/storages/static/dttq-1.jpg"
+  },
+  {
+    "category": "potato",
+    "title": "Khoai tây Đà Lạt",
+    "imgUrl": "/storages/static/ktdl-1.jpg"
+  },
+  {
+    "category": "potato",
+    "title": "Khoai tây Trung Quốc",
+    "imgUrl": "/storages/static/kttq-1.jpg"
+  }
+]

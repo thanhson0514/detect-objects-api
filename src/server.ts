@@ -5,6 +5,7 @@ const start = async () => {
   try {
     const PORT: number = config.PORT;
     const fastify = await build({});
+
     await fastify.listen({ port: PORT }, () => {
       console.log(`Server is running on port ${PORT}`);
     });
